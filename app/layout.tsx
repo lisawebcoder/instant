@@ -4,8 +4,10 @@ import PlausibleProvider from "next-plausible";
 import "./globals.css";
 
 const inter = Lexend({ subsets: ["latin"] });
-
-let title = "Turbo Seek – AI Search Engine";
+{/* jan24th2025 original line below commented out */}
+{/*let title = "Turbo Seek – AI Search Engine";*/}
+{/* jan24th2025 modified line below */}
+let title = "INSTANT – AI Search Engine";
 let description =
   "Search smarter and faster with our open source AI search engine";
 let url = "https://turboseek.io/";

@@ -13,10 +13,15 @@ const Footer = () => {
             width={31}
             height={30}
           />
+		  {/* jan24th2025--i will comment out from the start of the span tag to the end of the span tag-- */}
+	{/* 
           <span className="text-base font-medium leading-[normal]">
             TurboSeek.io
           </span>
+    */}
         </a>
+		{/* jan24th2025--i will comment out from the start of the div tag to the end of the div tag-- */}
+	{/* 
         <div className="flex items-center gap-3">
           <Link href={"https://x.com/nutlope"} target="_blank">
             <Image
@@ -37,6 +42,7 @@ const Footer = () => {
             />{" "}
           </Link>
         </div>
+		*/}
       </div>
     </>
   );

@@ -19,6 +19,8 @@ const Hero: FC<THeroProps> = ({
 
   return (
     <div className="flex flex-col items-center justify-center">
+	{/* jan24th2025--i will comment out from the start of the a tag to the end of the a tag-- */}
+	{/* 
       <a
         className="mb-4 inline-flex h-7 shrink-0 items-center gap-[9px] rounded-[50px] border-[0.5px] border-solid border-[#E6E6E6] bg-white px-3 py-4 shadow-[0px_1px_1px_0px_rgba(0,0,0,0.25)]"
         href="https://www.together.ai/"
@@ -35,6 +37,7 @@ const Hero: FC<THeroProps> = ({
           Powered by Together AI
         </span>
       </a>
+	  */}
       <h2 className="bg-custom-gradient bg-clip-text pb-7 pt-2 text-center text-3xl font-semibold leading-[normal] lg:text-[64px]">
         Search smarter & faster
       </h2>
@@ -72,6 +75,8 @@ const Hero: FC<THeroProps> = ({
       </div>
 
       {/* Github link section */}
+	  {/* jan24th2025--i will comment out from the start of the p tag to the end of the p tag-- */}
+	{/* 
       <p className="text-center text-sm font-light leading-[normal] text-[#1B1B16]">
         Fully open source!{" "}
         <span className="text-sm font-medium underline">
@@ -84,6 +89,7 @@ const Hero: FC<THeroProps> = ({
           </a>
         </span>
       </p>
+	  */}
     </div>
   );
 };
