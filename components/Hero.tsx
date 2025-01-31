@@ -5,7 +5,9 @@ import InputArea from "./InputArea";
 type THeroProps = {
   promptValue: string;
   setPromptValue: React.Dispatch<React.SetStateAction<string>>;
-  handleDisplayResult: (query: string) => void; // Modified to accept query directly
+  //jan30th2025--having issues on remote server and so i comment out this line and replaced
+  //handleDisplayResult: (query: string) => void; // Modified to accept query directly
+  handleDisplayResult: (query?: string) => void; // Allow optional parameter
 };
 
 const Hero: FC<THeroProps> = ({
