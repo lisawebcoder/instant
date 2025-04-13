@@ -75,6 +75,7 @@
 // }
 
 // Stub version: keeps import valid but disables rendering--ArtIntel helped me--
-export default function Answer() {
-  return null;
+export default function Answer({ answer }: { answer: string }) {
+  return null; // Disabled rendering, but keeping the prop type
 }
+
