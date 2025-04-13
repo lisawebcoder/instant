@@ -55,8 +55,8 @@ const Hero: FC<THeroProps> = ({
         />
       </div>
 
-      {/* Modified: Suggestions section now directly triggers results */}
-      <div className="flex flex-wrap items-center justify-center gap-2.5 pb-[30px] lg:flex-nowrap lg:justify-normal">
+      {/* Modified: Suggestions section now directly triggers results */}	
+      <div className="flex flex-wrap items-center justify-center gap-2.5 pb-[30px] lg:flex-nowrap lg:justify-normal">     
         {suggestions.map((item) => (
           <div
             className="flex h-[35px] cursor-pointer items-center justify-center gap-[5px] rounded border border-solid border-[#C1C1C1] bg-[#EDEDEA] px-2.5 py-2"
@@ -105,6 +105,7 @@ type suggestionType = {
 
 // Modified: Updated suggestions to different topics
 const suggestions: suggestionType[] = [
+
   {
     id: 1,
     name: "best NHL team of all time",
@@ -120,6 +121,23 @@ const suggestions: suggestionType[] = [
     name: "best MLB team of all time",
     icon: "/img/icon _atom_.svg",
   },
+/*
+  {
+    id: 4,
+    name: "Canada announces retaliatory tariffs on long-time ally US",
+    icon: "/img/icon _leaf_.svg",
+  },
+  {
+    id: 5,
+    name: "What specific measures did Justin Trudeau's government take to counter Trump's tariffs in 2025",
+    icon: "/img/icon _dumbell_.svg",
+  },
+  {
+    id: 6,
+    name: "What were the main retaliatory tariffs imposed by Canada on the US under Justin Trudeau in 2025",
+    icon: "/img/icon _atom_.svg",
+  },
+*/
 ];
 
 export default Hero;

@@ -1,3 +1,4 @@
+/*
 import Image from "next/image";
 
 const SimilarTopics = ({
@@ -74,3 +75,9 @@ const SimilarTopics = ({
 };
 
 export default SimilarTopics;
+
+*/
+// Stub version: keeps import valid but disables rendering --ArtIntel helped me 😎
+export default function SimilarTopics() {
+  return null;
+}

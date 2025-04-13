@@ -5,15 +5,10 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import InputArea from "@/components/InputArea";
-import SimilarTopics from "@/components/SimilarTopics";
+import SimilarTopics from "@/components/SimilarTopics"; // Keep import, just won't render
 import Sources from "@/components/Sources";
 import Image from "next/image";
 import { useRef, useState } from "react";
-import {
-  createParser,
-  ParsedEvent,
-  ReconnectInterval,
-} from "eventsource-parser";
 
 export default function Home() {
   const [promptValue, setPromptValue] = useState("");
@@ -50,7 +45,6 @@ export default function Home() {
     });
     if (sourcesResponse.ok) {
       let sources = await sourcesResponse.json();
-
       setSources(sources);
     } else {
       setSources([]);
@@ -69,41 +63,8 @@ export default function Home() {
       throw new Error(response.statusText);
     }
 
-    if (response.status === 202) {
-      const fullAnswer = await response.text();
-      setAnswer(fullAnswer);
-      return;
-    }
-
-    // This data is a ReadableStream
-    const data = response.body;
-    if (!data) {
-      return;
-    }
-
-    const onParse = (event: ParsedEvent | ReconnectInterval) => {
-      if (event.type === "event") {
-        const data = event.data;
-        try {
-          const text = JSON.parse(data).text ?? "";
-          setAnswer((prev) => prev + text);
-        } catch (e) {
-          console.error(e);
-        }
-      }
-    };
-
-    // https://web.dev/streams/#the-getreader-and-read-methods
-    const reader = data.getReader();
-    const decoder = new TextDecoder();
-    const parser = createParser(onParse);
-    let done = false;
-    while (!done) {
-      const { value, done: doneReading } = await reader.read();
-      done = doneReading;
-      const chunkValue = decoder.decode(value);
-      parser.feed(chunkValue);
-    }
+    const fullAnswer = await response.text();
+    setAnswer(fullAnswer);
   }
 
   async function handleSimilarQuestions(question: string) {
@@ -111,8 +72,14 @@ export default function Home() {
       method: "POST",
       body: JSON.stringify({ question }),
     });
-    let questions = await res.json();
-    setSimilarQuestions(questions);
+
+    // If the API doesn't respond properly, set similarQuestions to empty
+    if (res.ok) {
+      let questions = await res.json();
+      setSimilarQuestions(questions);
+    } else {
+      setSimilarQuestions([]); // Just set to empty if there's an issue
+    }
   }
 
   const reset = () => {
@@ -159,11 +126,13 @@ export default function Home() {
                 <>
                   <Sources sources={sources} isLoading={isLoadingSources} />
                   <Answer answer={answer} />
-                  <SimilarTopics
+
+                  {/* Comment out the SimilarTopics rendering here */}
+                  {/* <SimilarTopics
                     similarQuestions={similarQuestions}
                     handleDisplayResult={handleDisplayResult}
                     reset={reset}
-                  />
+                  /> */}
                 </>
               </div>
 
